@@ -1,0 +1,6 @@
+{
+  "reporter": "cypress-allure-reporter",
+  "reporterOptions": {
+    "reportDir": "allure-results"
+  }
+}

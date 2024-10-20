@@ -1,0 +1,129 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 2,
+    "passes": 1,
+    "pending": 0,
+    "failures": 1,
+    "start": "2024-10-19T16:44:22.793Z",
+    "end": "2024-10-19T16:44:24.331Z",
+    "duration": 1538,
+    "testsRegistered": 2,
+    "passPercent": 50,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "30cb60db-f7e4-4952-955d-1dd52c8ccf46",
+      "title": "",
+      "fullFile": "cypress\\e2e\\1-getting-started\\apiGetGoals.cy.js",
+      "file": "cypress\\e2e\\1-getting-started\\apiGetGoals.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "bad6c42a-4ad8-4ffd-91a1-14c4c0e517a2",
+          "title": "API Tests",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "getGoals",
+              "fullTitle": "API Tests getGoals",
+              "timedOut": null,
+              "duration": 684,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "const team_id = '9012323965';\ncy.sendRequest('GET', `https://api.clickup.com/api/v2/team/${team_id}/goal?include_completed=true`).then(response => {\n  cy.log(`Response Status: ${response.status}`);\n  expect(response.status).to.eq(200);\n});",
+              "err": {},
+              "uuid": "0eb05866-8e1f-40eb-9e45-3a46af520dfd",
+              "parentUUID": "bad6c42a-4ad8-4ffd-91a1-14c4c0e517a2",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "createGoal",
+              "fullTitle": "API Tests createGoal",
+              "timedOut": null,
+              "duration": 717,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "const team_id = '9012323965';\nconst body = {\n  \"name\": \"Goal Name4\",\n  \"due_date\": 1568036964079,\n  \"description\": \"Goal Description\",\n  \"multiple_owners\": true,\n  \"owners\": [183],\n  \"color\": \"#32a852\"\n};\ncy.sendRequest('POST', `https://api.clickup.com/api/v2/team/${team_id}/goal`, body).then(response => {\n  cy.log(`Response Status: ${response.status}`);\n  expect(response.status).to.eq(404);\n  expect(response.body.name).to.eq(\"Goal Name4\");\n});",
+              "err": {
+                "message": "AssertionError: expected undefined to equal 'Goal Name4'",
+                "estack": "AssertionError: expected undefined to equal 'Goal Name4'\n    at Context.eval (webpack://cypress_project/./cypress/e2e/1-getting-started/apiGetGoals.cy.js:26:36)",
+                "diff": null
+              },
+              "uuid": "c40688ce-09cc-4ea2-9394-e553fb2ae8dc",
+              "parentUUID": "bad6c42a-4ad8-4ffd-91a1-14c4c0e517a2",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "0eb05866-8e1f-40eb-9e45-3a46af520dfd"
+          ],
+          "failures": [
+            "c40688ce-09cc-4ea2-9394-e553fb2ae8dc"
+          ],
+          "pending": [],
+          "skipped": [],
+          "duration": 1401,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": true,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "cypress/reports",
+        "overwrite": false,
+        "html": true,
+        "json": true
+      },
+      "version": "6.2.0"
+    }
+  }
+}
